@@ -37,3 +37,7 @@ output "nat_gateway_id" {
 output "sg_ids" {
     value = aws_security_group.roboshop_sg[*].id
 }
+
+output "catalogue_instance_id" {
+    value = aws_instance.catalogue.id
+}
