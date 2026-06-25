@@ -4,6 +4,6 @@ resource "aws_instance" "catalogue" {
     subnet_id =  split(",", data.aws_ssm_parameter.private_subnet_ids.value)[0]
     vpc_security_group_ids = [ data.aws_ssm_parameter.catalogue_sg_id.value ]
     tags = {
-        name = "${local.common_name}_catalogue"
+        Name = "${local.common_name}_catalogue"
     }
 }
