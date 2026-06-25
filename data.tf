@@ -1,6 +1,6 @@
-# data "aws_ssm_parameter" "vpc_id" {
-#     name = "${local.common_name}_vpc_id"
-# }
+data "aws_ssm_parameter" "vpc_id" {
+    name = "${local.common_name}_vpc_id"
+}
 
 # data "aws_ssm_parameter" "catalogue_sg_id" {
 #     name = "${local.common_name}_catalogue_sg_id"
