@@ -69,3 +69,12 @@ resource "aws_security_group_rule" "frontend_alb_ingress_rule" {
     security_group_id = data.aws_ssm_parameter.frontend_alb_sg_id.value
     cidr_blocks = [ "0.0.0.0/0" ]
 }
+
+resource "aws_security_group_rule" "catalogue_ssh" {
+    security_group_id = data.aws_ssm_parameter.catalogue_sg_id.value
+    cidr_blocks         = [ "172.31.85.76/32" ]
+    from_port         = 22
+    to_port           = 22
+    protocol       = "tcp"
+    type = "ingress"
+}
