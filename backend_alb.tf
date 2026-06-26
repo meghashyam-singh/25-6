@@ -1,0 +1,12 @@
+resource "aws_lb" "backend_alb" {
+    load_balancer_type = "application"
+    name = "${local.common_name}_backend_alb"
+    internal = true
+
+    security_groups = [ data.aws_ssm_parameter.backend_alb_sg_id.value ]
+    subnets = split(",", data.aws_ssm_parameter.private_subnet_ids.value)
+
+    tags = {
+        Name = "${local.common_name}_backend_alb"
+    }
+}
